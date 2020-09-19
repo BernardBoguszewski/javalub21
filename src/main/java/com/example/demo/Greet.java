@@ -12,6 +12,11 @@ public class Greet {
         if (name.equals(name.toUpperCase())) {
             return String.format("WITAJ, %s", name);
         }
+        if (name.contains(",")) {
+            String names = name.replace(",", " i ");
+
+            return String.format("%s, witajcie!", names);
+        }
         return String.format("Witaj, %s", name);
     }
 }
