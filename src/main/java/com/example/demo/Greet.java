@@ -4,15 +4,12 @@ public class Greet {
 
     public String greet(String name) {
 
-        if (name != null) {
+        if (name != null && !name.equals(name.toUpperCase())) {
             return String.format("Witaj, %s", name);
 
-        } else {
-            return String.format("Witaj mój przyjacielu");
-
-
+        } else if (name != null && name.equals(name.toUpperCase())) {
+            return String.format("WITAJ, %s", name);
         }
-
-
+        return String.format("Witaj mój przyjacielu");
     }
 }
