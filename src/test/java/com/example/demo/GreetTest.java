@@ -42,4 +42,17 @@ class GreetTest {
         //then
         assertEquals("WITAJ, ADAM", result);
     }
+    @Test
+    void testShouldAddNamesAfterComma() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Adam i Iza witajcie!", result);
+    }
+
 }
