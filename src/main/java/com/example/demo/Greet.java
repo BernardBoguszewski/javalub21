@@ -6,10 +6,7 @@ public class Greet {
 
         if (name != null) {
             return String.format("Witaj, %s", name);
-
-        } else {
-            return "Witaj, mój przyjacielu";
         }
+        return "Witaj, mój przyjacielu";
     }
-
 }
