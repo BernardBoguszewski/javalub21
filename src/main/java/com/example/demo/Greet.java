@@ -6,7 +6,10 @@ public class Greet {
         if (name == null){
             return "Witaj, mój przyjacielu";
         }
+        if (name.equals(name.toUpperCase())){
+            return "WITAJ " + name.toUpperCase();
+        }
+
         return String.format("Witaj, %s", name);
     }
-
 }
