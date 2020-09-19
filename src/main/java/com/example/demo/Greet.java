@@ -7,9 +7,17 @@ public class Greet {
             return "Witaj, mój przyjacielu";
         }
         if(isUpperCase(name)) {
-            return String.format("WITAJ %s", name);
+            return String.format("WITAJ %s!", name);
+        }
+        if(hasTwoNames(name)){
+            String[] strings = name.split(",");
+            return String.format("%s i %s, witajcie!", strings[0], strings[1]);
         }
         return String.format("Witaj, %s", name);
+    }
+
+    private boolean hasTwoNames(String name) {
+        return name.contains(",");
     }
 
     private boolean isUpperCase(String name){

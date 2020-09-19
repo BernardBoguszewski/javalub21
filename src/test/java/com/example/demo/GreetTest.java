@@ -43,7 +43,21 @@ class GreetTest {
         String result = greet.greet(name);
 
         //then
-        assertEquals("WITAJ, ADAM", result);
+        assertEquals("WITAJ ADAM!", result);
+
+    }
+
+    @Test
+    void testShouldAddAndWhen2Names() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Adam i Iza, witajcie!", result);
 
     }
 
