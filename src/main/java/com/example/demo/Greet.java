@@ -9,9 +9,14 @@ public class Greet {
         if(isUpperCase(name)) {
             return String.format("WITAJ %s!", name);
         }
-        if(hasTwoNames(name)){
+        if(name.contains(",")){
             String[] strings = name.split(",");
-            return String.format("%s i %s, witajcie!", strings[0], strings[1]);
+            if(strings.length == 2){
+                return String.format("%s i %s, witajcie!", strings[0], strings[1]);
+            }if(strings.length == 3){
+                return String.format("%s, %s i %s, witajcie!", strings[0], strings[1], strings[2]);
+            }
+
         }
         return String.format("Witaj, %s", name);
     }
