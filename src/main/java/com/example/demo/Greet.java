@@ -9,11 +9,10 @@ public class Greet {
         if (name.equals(name.toUpperCase())){
             return "WITAJ " + name.toUpperCase();
         }
-
+        if (name.contains(",")){
+            String[] tab = name.split(",");
+            return tab[0] + " i " + tab[1] + " witajcie!";
+        }
         return String.format("Witaj, %s", name);
-    }
-
-    public String greet(String name, String name2) {
-        return String.format(name + " i " + name2 + " witajcie!");
     }
 }

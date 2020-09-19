@@ -49,13 +49,13 @@ class GreetTest {
     void testShouldReturnGreetingForTwoPersons() {
         //given
         Greet greet = new Greet();
-        String name = "Adam";
-        String name2 = "Iza";
+        String name = "Adam,Iza";
+
 
         //when
-        String result = greet.greet(name,name2);
+        String result = greet.greet(name);
 
         //then
-        assertEquals(name + " i " + name2 + " witajcie!", result);
+        assertEquals( "Adam i Iza witajcie!", result);
     }
 }
