@@ -35,6 +35,5 @@ class GreetTest {
         String result= greet.greet(name);
 
         assertEquals("WITAJ, ADAM", result);
-
     }
 }
