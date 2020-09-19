@@ -2,7 +2,7 @@ package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GreetTest {
 
@@ -32,7 +32,7 @@ class GreetTest {
     }
 
     @Test
-    void testShouldCapitalLetterGreetingIfNameIsCapital() {
+    void testShouldReturnCapitalLetterGreetingIfNameIsCapital() {
         //given
         Greet greet = new Greet();
         String name = "ADAM";
@@ -68,5 +68,44 @@ class GreetTest {
 
         //then
         assertEquals("Adam, Iza i Robert, witajcie!", result);
+    }
+
+    @Test
+    void testShouldReturnThirdCapitalName() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza,ROBERT";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Adam i Iza, witajcie! WITAJ ROBERT!", result);
+    }
+
+    @Test
+    void testShouldReturnSecondCapitalName() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,IZA,Robert";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Adam i Robert, witajcie! WITAJ IZA!", result);
+    }
+
+    @Test
+    void testShouldReturnFirstCapitalName() {
+        //given
+        Greet greet = new Greet();
+        String name = "ADAM,Iza,Robert";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Iza i Robert, witajcie! WITAJ ADAM!", result);
     }
 }
