@@ -23,14 +23,31 @@ class GreetTest {
     void testShouldProtectAgainstNull() {
         //given
         Greet greet = new Greet();
-        String name = "";
+        String name = null;
 
         //when
         String result = greet.greet(name);
 
         //then
-        assertEquals("Name needed", result);
+        assertEquals("Witaj, mój przyjacielu", result);
 
     }
+
+    @Test
+    void testShouldBeCaseSensitive() {
+        //given
+        Greet greet = new Greet();
+        String name = "ADAM";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("WITAJ, ADAM", result);
+
+    }
+
+
+
 
 }
