@@ -18,4 +18,13 @@ class GreetTest {
         //then
         assertEquals("Witaj, Adam", result);
     }
+    @Test
+    void testShouldReturnFriendForNull(){
+        Greet greet= new Greet();
+        String name= null;
+
+        String result= greet.greet(name);
+
+        assertEquals("Witaj, mój przyjacielu", result);
+    }
 }
