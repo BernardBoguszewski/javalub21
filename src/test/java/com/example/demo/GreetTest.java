@@ -18,4 +18,19 @@ class GreetTest {
         //then
         assertEquals("Witaj, Adam", result);
     }
+
+    @Test
+    void testShouldProtectAgainstNull() {
+        //given
+        Greet greet = new Greet();
+        String name = "";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Name needed", result);
+
+    }
+
 }
