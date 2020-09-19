@@ -18,4 +18,31 @@ class GreetTest {
         //then
         assertEquals("Witaj, Adam", result);
     }
+    @Test
+    void testShouldReturnMessageForNull(){
+        Greet greet= new Greet();
+        String name= null;
+
+        String result= greet.greet(name);
+
+        assertEquals("Witaj, mój przyjacielu", result);
+    }
+    @Test
+    void testShouldReturnGreetingWithUpperCase(){
+        Greet greet= new Greet();
+        String name= "ADAM";
+
+        String result= greet.greet(name);
+
+        assertEquals("WITAJ, ADAM", result);
+    }
+    @Test
+    void testShouldReturnGreetingForTwoOrMorePeople(){
+        Greet greet= new Greet();
+        String name= "Adam, Iza";
+
+        String result= greet.greet(name);
+
+        assertEquals("Adam i Iza, witajcie",result);
+    }
 }
