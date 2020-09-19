@@ -74,6 +74,19 @@ class GreetTest {
         assertEquals("Adam, Iza i Robert, witajcie!", result);
 
     }
+    @Test
+    void testShouldReturn3NamesCaseSensitive() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza,ROBERT";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Adam i Iza, witajcie! WITAJ ROBERT!", result);
+
+    }
 
 
 
