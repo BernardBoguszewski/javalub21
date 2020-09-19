@@ -11,10 +11,8 @@ class GreetTest {
         //given
         Greet greet = new Greet();
         String name = "Adam";
-
         //when
         String result = greet.greet(name);
-
         //then
         assertEquals("Witaj, Adam", result);
     }
@@ -42,14 +40,24 @@ class GreetTest {
     }
 
     @Test
-    void testShouldGreetEveryPersonSeparatedByComma() {
+    void testShouldGreetTwoPeopleSeparatedByComma() {
         //given
         Greet greet = new Greet();
         String name = "Adam,Iza";
-
         //when
         String result = greet.greet(name);
         //then
         assertEquals("Adam i Iza, witajcie!", result);
+    }
+
+    @Test
+    void testShouldGreetEveryPersonSeparatedByComma() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza,Robert";
+        //when
+        String result = greet.greet(name);
+        //then
+        assertEquals("Adam, Iza i Robert, witajcie!", result);
     }
 }

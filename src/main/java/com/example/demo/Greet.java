@@ -13,8 +13,7 @@ public class Greet {
             return String.format("WITAJ, %s", name);
         }
         if (name.contains(",")) {
-            String names = name.replace(",", " i ");
-
+            String names = name.replaceAll("(,)([^,]*)$", " i " + "$2").replaceAll(",", ", ");
             return String.format("%s, witajcie!", names);
         }
         return String.format("Witaj, %s", name);
