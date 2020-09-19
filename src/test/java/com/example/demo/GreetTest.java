@@ -2,7 +2,7 @@ package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GreetTest {
 
@@ -18,8 +18,9 @@ class GreetTest {
         //then
         assertEquals("Witaj, Adam", result);
     }
+
     @Test
-    void testShouldReturnGreetingWithoutName(){
+    void testShouldReturnGreetingWithoutName() {
         //given
         Greet greet = new Greet();
         String name = null;
@@ -29,5 +30,18 @@ class GreetTest {
 
         //then
         assertEquals("Witaj, mój przyjacielu.", result);
+    }
+
+    @Test
+    void testShouldReturnGreetingForNameBigLetters() {
+        //given
+        Greet greet = new Greet();
+        String name = "ADAM";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("WITAJ, ADAM!", result);
     }
 }
