@@ -36,4 +36,13 @@ class GreetTest {
 
         assertEquals("WITAJ, ADAM", result);
     }
+    @Test
+    void testShouldReturnGreetingForTwoOrMorePeople(){
+        Greet greet= new Greet();
+        String name= "Adam, Iza";
+
+        String result= greet.greet(name);
+
+        assertEquals("Adam i Iza, witajcie",result);
+    }
 }

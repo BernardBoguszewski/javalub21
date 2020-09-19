@@ -7,6 +7,9 @@ public class Greet {
             return "Witaj, mój przyjacielu";
         } else if (name.equals(name.toUpperCase())){
             return String.format("WITAJ, %s", name);
+        } else if (name.contains(",")){
+            String names= name.replace(",", " i");
+            return String.format("%s, witajcie", names);
         }
         return String.format("Witaj, %s", name);
     }
