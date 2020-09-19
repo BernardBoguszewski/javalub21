@@ -11,4 +11,7 @@ public class Greet {
         return String.format("Witaj, %s", name);
     }
 
+    public String greet(String name1, String name2) {
+        return String.format("%s i %s, witajcie!", name1, name2);
+    }
 }

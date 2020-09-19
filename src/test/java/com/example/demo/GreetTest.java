@@ -43,4 +43,18 @@ class GreetTest {
         //then
         assertEquals("WITAJ ADAM!", result);
     }
+
+    @Test
+    void testShouldGreetTwoNames() {
+        //given
+        Greet greet = new Greet();
+        String name1 = "Adam";
+        String name2 = "Iza";
+
+        //when
+        String result = greet.greet(name1, name2);
+
+        //then
+        assertEquals("Adam i Iza, witajcie!", result);
+    }
 }
