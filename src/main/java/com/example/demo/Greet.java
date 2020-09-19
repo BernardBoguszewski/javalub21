@@ -3,6 +3,9 @@ package com.example.demo;
 public class Greet {
 
     public String greet(String name) {
+        if (name.matches(".*\\d.*")) {
+            return "Z liczbami się nie witam.";
+        }
         if (name == null) {
             return "Witaj, mój przyjacielu";
         } else if (name.equals(name.toUpperCase())) {
@@ -16,6 +19,7 @@ public class Greet {
                 return greetingWithOneCapitalName(table);
             }
         }
+
         return String.format("Witaj, %s", name);
     }
 

@@ -108,4 +108,17 @@ class GreetTest {
         //then
         assertEquals("Iza i Robert, witajcie! WITAJ ADAM!", result);
     }
+
+    @Test
+    void testShouldReturnDefaultTextIfNameContainsDigits() {
+        //given
+        Greet greet = new Greet();
+        String name = "AD1AM,Iza,Robert";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Z liczbami się nie witam.", result);
+    }
 }
