@@ -19,12 +19,22 @@ class GreetTest {
         assertEquals("Witaj, Adam", result);
     }
     @Test
-    void testShouldReturnFriendForNull(){
+    void testShouldReturnMessageForNull(){
         Greet greet= new Greet();
         String name= null;
 
         String result= greet.greet(name);
 
         assertEquals("Witaj, mój przyjacielu", result);
+    }
+    @Test
+    void testShouldReturnGreetingWithUpperCase(){
+        Greet greet= new Greet();
+        String name= "ADAM";
+
+        String result= greet.greet(name);
+
+        assertEquals("WITAJ, ADAM", result);
+
     }
 }
