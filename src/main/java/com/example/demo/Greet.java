@@ -1,16 +1,15 @@
 package com.example.demo;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Greet {
 
     public String greet(String name) {
         if (name == null) {
             return "Witaj, mój przyjacielu";
+        }
+        if (containsNumbers(name)) {
+            return "Z liczbami się nie witam.";
         }
         if (isUpperCase(name)) {
             return String.format("WITAJ %s!", name);
@@ -21,12 +20,21 @@ public class Greet {
         return String.format("Witaj, %s", name);
     }
 
+    private boolean containsNumbers(String name) {
+        if (name.matches(".*\\d.*")) {
+            return true;
+        }
+        return false;
+    }
+
     private String threeNames(String name) {
         String[] names = name.split(",");
         if (names.length == 2) {
             return String.format("%s i %s, witajcie!", names[0], names[1]);
         }
-        if (names.length == 3) return getString(names);
+        if (names.length == 3) {
+            return getString(names);
+        }
         return null;
     }
 
