@@ -3,13 +3,13 @@ package com.example.demo;
 public class Greet {
 
     public String greet(String name) {
-        if (name.matches(".*\\d.*")) {
-            return "Z liczbami się nie witam.";
-        }
         if (name == null) {
             return "Witaj, mój przyjacielu";
         } else if (name.equals(name.toUpperCase())) {
             return String.format("WITAJ %s!", name.toUpperCase());
+        }
+        if (name.matches(".*\\d.*")) {
+            return "Z liczbami się nie witam.";
         }
         if (name.contains(",")) {
             String[] table = name.split(",");
