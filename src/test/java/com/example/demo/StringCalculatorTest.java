@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StringCalculatorTest {
     @Test
-    void shouldReturn0WhenGivenStringIsNull() {
+    void shouldReturnZeroWhenGivenStringIsNull() {
         StringCalculator stringCalculator = new StringCalculator();
 
         int result = stringCalculator.add(null);
@@ -15,7 +15,7 @@ class StringCalculatorTest {
     }
 
     @Test
-    void shouldReturn0WhenGivenStringIsEmpty() {
+    void shouldReturnZeroWhenGivenStringIsEmpty() {
         StringCalculator stringCalculator = new StringCalculator();
 
         int result = stringCalculator.add("");

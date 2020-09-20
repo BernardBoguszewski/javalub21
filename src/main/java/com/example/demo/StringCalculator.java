@@ -9,7 +9,7 @@ public class StringCalculator {
         int sum = 0;
 
         for (String s : numbersTable) {
-            sum = sum + Integer.parseInt(s);
+            sum+= Integer.parseInt(s);
         }
 
         return sum;
