@@ -7,6 +7,9 @@ public class Greet {
         if (name == null) {
             return "Witaj, mój przyjacielu";
         }
+        if (name.matches(".*\\d.*")) {
+            return "Z liczbami się nie witam.";
+        }
         if (name.equals(name.toUpperCase())) {
             return String.format("WITAJ %s!", name);
         }
@@ -35,7 +38,6 @@ public class Greet {
                         msg = names[0] + " i " + names[1] + ", witajcie! WITAJ " + names[2];
                         break;
                 }
-
                 return msg + "!";
             }
             return names[0] + ", " + names[1] + " i " + names[2] + ", witajcie!";

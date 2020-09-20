@@ -66,4 +66,14 @@ class GreetTest {
         //then
         assertEquals("Adam i Iza, witajcie! WITAJ ROBERT!", result);
     }
+    @Test
+    void testShouldRecognizeNameContainsDigitsAndReturnSpecificText() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza,ROB6ERT";
+        //when
+        String result = greet.greet(name);
+        //then
+        assertEquals("Z liczbami się nie witam.", result);
+    }
 }
