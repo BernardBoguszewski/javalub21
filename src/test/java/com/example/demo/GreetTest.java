@@ -11,11 +11,19 @@ class GreetTest {
         //given
         Greet greet = new Greet();
         String name = "Adam";
-
         //when
         String result = greet.greet(name);
-
         //then
         assertEquals("Witaj, Adam", result);
+    }
+    @Test
+    void testShouldReturnSpecificTextIfNameIsNull(){
+        //given
+        Greet greet = new Greet();
+        String name = null;
+        //when
+        String result = greet.greet(name);
+        //then
+        assertEquals("Witaj, mój przyjacielu", result);
     }
 }
