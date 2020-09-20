@@ -45,7 +45,7 @@ class StringCalculatorTest {
         assertEquals(expected, result);
     }
     @Test
-    void testShouldAddNumbersSeparatedbyCommaOrNewLine(){
+    void testShouldAddNumbersSeparatedByCommaOrNewLine(){
         //given
         StringCalculator stringCalculator = new StringCalculator();
         String given = "3\n4,5";
@@ -53,7 +53,23 @@ class StringCalculatorTest {
         int result = stringCalculator.add(given);
         //then
         assertEquals(12,result);
+    }
 
+    @Test
+    void testShouldAddNumbersSeparatedByDelimiter(){
+        //given
+        StringCalculator stringCalculator = new StringCalculator();
+        String given = "//%\n3%5%7";
+        String given2 = "//;\n3;4;7";
+        String given3 = "//s\n5s7s7";
+        //when
+        int result = stringCalculator.add(given);
+        int result2 = stringCalculator.add(given2);
+        int result3 = stringCalculator.add(given3);
+        //then
+        assertEquals(15,result);
+        assertEquals(14,result2);
+        assertEquals(19,result3);
     }
 
 }
