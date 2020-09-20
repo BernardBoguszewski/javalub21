@@ -60,4 +60,14 @@ class GreetTest {
         //then
         assertEquals("Adam, Iza i Robert, witajcie!", result);
     }
+    @Test
+    void shouldGreetEveryoneSeparatedByCommaConsideringUpperCase(){
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza,ROBERT";
+        //when
+        String result = greet.greet(name);
+        //then
+        assertEquals("Adam, Iza, witajcie! WITAJ ROBERT", result);
+    }
 }
