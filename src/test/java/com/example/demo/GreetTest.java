@@ -70,4 +70,14 @@ class GreetTest {
         //then
         assertEquals("Adam, Iza, witajcie! WITAJ ROBERT", result);
     }
+    @Test
+    void shouldNotGreetNameContainingNumbers(){
+        //given
+        Greet greet = new Greet();
+        String name = "ania3";
+        //when
+        String result = greet.greet(name);
+        //then
+        assertEquals("Z liczbami sie nie witam", result);
+    }
 }

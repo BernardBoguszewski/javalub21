@@ -1,11 +1,18 @@
 package com.example.demo;
 
+import org.springframework.util.StringUtils;
+
+import java.util.regex.Pattern;
+
 public class Greet {
 
     public String greet(String name) {
 
         if (name == null) {
             return "Witaj, mój przyjacielu";
+        }
+        if (stringContainsNumber(name)) {
+            return "Z liczbami sie nie witam";
         }
         if (name.equals(name.toUpperCase())) {
             return String.format("WITAJ, %s", name);
@@ -29,5 +36,9 @@ public class Greet {
             }
         }
         return String.format("Witaj, %s", name);
+    }
+
+    public boolean stringContainsNumber(String string) {
+        return Pattern.compile("[0-9]").matcher(string).find();
     }
 }
