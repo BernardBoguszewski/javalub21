@@ -1,10 +1,6 @@
 package com.example.demo;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import javax.swing.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +18,7 @@ class FizzBuzzWhizzTest {
     }
 
     @Test
-    void testShouldReturnFizzForInputDivisibleBy3(){
+    void testShouldReturnFizzForInputDivisibleBy3() {
         //given
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
         int given = 6;
@@ -31,8 +27,9 @@ class FizzBuzzWhizzTest {
         //then
         assertEquals("Fizz", result);
     }
+
     @Test
-    void testShouldReturnBuzzForInputDivisibleBy5(){
+    void testShouldReturnBuzzForInputDivisibleBy5() {
         //given
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
         int given = 10;
@@ -40,5 +37,16 @@ class FizzBuzzWhizzTest {
         String result = fizzBuzzWhizz.fizzBuzzWhizz(given);
         //then
         assertEquals("Buzz", result);
+    }
+
+    @Test
+    void testShouldReturnFizzBuzzForInputDivisibleBy5And3() {
+        //given
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        int given = 15;
+        //when
+        String result = fizzBuzzWhizz.fizzBuzzWhizz(given);
+        //then
+        assertEquals("FizzBuzz", result);
     }
 }
