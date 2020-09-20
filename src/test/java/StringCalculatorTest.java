@@ -44,5 +44,16 @@ class StringCalculatorTest {
         //then
         assertEquals(expected, result);
     }
+    @Test
+    void testShouldAddNumbersSeparatedbyCommaOrNewLine(){
+        //given
+        StringCalculator stringCalculator = new StringCalculator();
+        String given = "3\n4,5";
+        //when
+        int result = stringCalculator.add(given);
+        //then
+        assertEquals(12,result);
+
+    }
 
 }
