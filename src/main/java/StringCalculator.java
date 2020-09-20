@@ -3,6 +3,9 @@ public class StringCalculator {
         if (numbers == null || numbers.isBlank()) {
             return 0;
         }
+        if(numbers.contains("-")){
+            throw new IllegalArgumentException("Liczby ujemne nie sa obslugiwane");
+        }
         if (numbers.startsWith("//")) {
             String[] separate = numbers.split("\n");
             String delimiter = separate[0].replaceAll("//", "");
