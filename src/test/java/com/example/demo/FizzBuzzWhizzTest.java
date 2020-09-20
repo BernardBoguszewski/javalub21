@@ -49,4 +49,37 @@ class FizzBuzzWhizzTest {
         //then
         assertEquals("FizzBuzz", result);
     }
+
+    @Test
+    void testShouldReturnWhizzForPrimes() {
+        //given
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        int given = 7;
+        //when
+        String result = fizzBuzzWhizz.fizzBuzzWhizz(given);
+        //then
+        assertEquals("Whizz", result);
+    }
+
+    @Test
+    void testShouldReturnFizzWhizzFor3() {
+        //given
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        int given = 3;
+        //when
+        String result = fizzBuzzWhizz.fizzBuzzWhizz(given);
+        //then
+        assertEquals("FizzWhizz", result);
+    }
+
+    @Test
+    void testShouldReturnBuzzWhizzFor5() {
+        //given
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        int given = 5;
+        //when
+        String result = fizzBuzzWhizz.fizzBuzzWhizz(given);
+        //then
+        assertEquals("BuzzWhizz", result);
+    }
 }
