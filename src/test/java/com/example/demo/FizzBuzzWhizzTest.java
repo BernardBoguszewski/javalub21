@@ -31,4 +31,14 @@ class FizzBuzzWhizzTest {
         //then
         assertEquals("Fizz", result);
     }
+    @Test
+    void testShouldReturnBuzzForInputDivisibleBy5(){
+        //given
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        int given = 10;
+        //when
+        String result = fizzBuzzWhizz.fizzBuzzWhizz(given);
+        //then
+        assertEquals("Buzz", result);
+    }
 }
