@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -66,6 +67,25 @@ class StringCalcTest {
 
     }
 
+    @Test
+    void testShouldAcceptNewSeparator() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "//;\n3;5;7";
 
+        int result = stringCalc.add(numbers);
 
+        assertEquals(15, result);
+
+    }
+
+    @Test
+    void testShouldNotWorkWithNumbersBelowZero() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "3,-5";
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> {stringCalc.add(numbers);});
+
+        assertEquals("Liczby ujemne nie sąobsługiwane", exception.getMessage());
+    }
 }

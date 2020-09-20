@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.security.InvalidParameterException;
+
 public class StringCalc {
 
     public int add(String numbers) {
@@ -13,15 +15,32 @@ public class StringCalc {
         if (!numbers.contains("\n")) {
             divided = numbers.split(",");
         }
+
         if (numbers.contains("\n")) {
-            String newNumbers = numbers.replaceAll("\n", ",");
+            String newNumbers = "";
+            if(numbers.startsWith("//")){
+                newNumbers = changeDelimiter(numbers);
+            }
+            if(!numbers.startsWith("//")) {
+                newNumbers = numbers.replaceAll("\n", ",");
+            }
             divided = newNumbers.split(",");
         }
 
         for (int i = 0; i < divided.length; i++) {
+            if(Integer.parseInt(divided[i]) < 0){
+                throw new IllegalArgumentException("Liczby ujemne nie sąobsługiwane");
+            }
             sum += Integer.parseInt(divided[i]);
         }
 
         return sum;
+    }
+
+    private String changeDelimiter(String numbers) {
+        String newNumbers = numbers.substring(4);
+        String newDelimiter = String.valueOf(numbers.charAt(2));
+        String newNumbers2 = newNumbers.replaceAll(newDelimiter, "," );
+        return newNumbers2;
     }
 }
