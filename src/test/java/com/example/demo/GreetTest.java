@@ -43,7 +43,7 @@ class GreetTest {
         assertEquals("WITAJ, ADAM", result);
     }
     @Test
-    void testShouldAddNamesAfterComma() {
+    void testShouldAddTwoNamesAfterComma() {
         //given
         Greet greet = new Greet();
         String name = "Adam,Iza";
@@ -52,7 +52,18 @@ class GreetTest {
         String result = greet.greet(name);
 
         //then
-        assertEquals("Adam i Iza witajcie!", result);
+        assertEquals("Adam i Iza, witajcie!", result);
     }
+    @Test
+    void testShouldAddThreeNamesAfterComma() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza,Robert";
 
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Adam, Iza i Robert, witajcie!", result);
+    }
 }
