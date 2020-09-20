@@ -44,4 +44,56 @@ class GreetTest {
         //then
         assertEquals("WITAJ, ADAM!", result);
     }
+
+    @Test
+    void testShouldReturnGreetingForTwoNames() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Adam i Iza, witajcie!", result);
+    }
+
+    @Test
+    void testShouldReturnNumberOfCommas() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza";
+
+        //when
+        int result = greet.numberOfCommas(name);
+
+        //then
+        assertEquals(1, result);
+    }
+
+    @Test
+    void testShouldReturnFirstNameBeforeComma() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza";
+
+        //when
+        String result = greet.returnFirstName(name);
+
+        //then
+        assertEquals("Adam", result);
+    }
+
+    @Test
+    void testShouldReturnSecondName() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza";
+
+        //when
+        String result = greet.returnSecondName(name);
+
+        //then
+        assertEquals("Iza", result);
+    }
 }
