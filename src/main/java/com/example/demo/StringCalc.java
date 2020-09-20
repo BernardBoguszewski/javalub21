@@ -8,7 +8,12 @@ public class StringCalc {
         }
 
         String[] divided = numbers.split(",");
+        int sum = 0;
 
-        return Integer.parseInt(divided[0]) + Integer.parseInt(divided[1]);
+        for (int i = 0; i < divided.length; i++) {
+            sum += Integer.parseInt(divided[i]);
+        }
+
+        return sum;
     }
 }

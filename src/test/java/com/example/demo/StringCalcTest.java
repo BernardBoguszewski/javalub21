@@ -28,6 +28,34 @@ class StringCalcTest {
         assertEquals(0, result);
     }
 
+    @Test
+    void testShouldWorkWith3Numbers() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "2,3,5";
+
+        int result = stringCalc.add(numbers);
+
+        assertEquals(10, result);
+
+    }
+
+    @Test
+    void testShouldWorkWithNNumbers() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "2,4,7,10,5";
+        String numbers2 = "1,3,5,7";
+        String numbers3 = "7,3,4,2,9,5";
+
+        int result = stringCalc.add(numbers);
+        int result2 = stringCalc.add(numbers2);
+        int result3 = stringCalc.add(numbers3);
+
+        assertEquals(28, result);
+        assertEquals(16, result2);
+        assertEquals(30, result3);
+
+    }
+
 
 
 }
