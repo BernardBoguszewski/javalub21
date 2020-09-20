@@ -6,7 +6,7 @@ public class GreetRunner {
 
         System.out.println(greet.greet("ADAM"));
 
-        Greet4 greet4 = new Greet4();
-        System.out.println(greet4.greet4("Adam,Iza,Robert"));
+        Greet5 greet5 = new Greet5();
+        System.out.println(greet5.greet5("Adam,Iza,Robert"));
     }
 }
