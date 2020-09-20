@@ -5,6 +5,9 @@ public class FizzBuzzWhizz {
         if (digit == null) {
             return "Nie dla null!";
         }
+        if (digit % 3 == 0) {
+            return "Fizz";
+        }
         return null;
     }
 }
