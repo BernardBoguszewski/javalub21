@@ -96,4 +96,30 @@ class GreetTest {
         //then
         assertEquals("Iza", result);
     }
+
+    @Test
+    void testShouldReturnThirdName() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza,Robert";
+
+        //when
+        String result = greet.returnThirdName(name);
+
+        //then
+        assertEquals("Robert", result);
+    }
+
+    @Test
+    void testShouldReturnGreetingForThreeNames() {
+        //given
+        Greet greet = new Greet();
+        String name = "Adam,Iza,Robert";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Adam, Iza i Robert, witajcie!", result);
+    }
 }
