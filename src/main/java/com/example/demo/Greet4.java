@@ -4,13 +4,11 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Greet4 {
     public String greet4(String name) {
-
-        int counter = StringUtils.countMatches(name, ",");
-        if (counter > 0) {
-            return name.replace(",", " i ");
-        } else {
-            return "Brak przecinków!";
-        }
+        name = StringUtils.reverse(name);
+        name = StringUtils.replace(name,","," i ",1);
+        name = StringUtils.reverse(name);
+        name = StringUtils.replace(name,",",", ",1);
+        return name;
     }
 }
 

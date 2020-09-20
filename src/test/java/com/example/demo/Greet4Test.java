@@ -18,4 +18,16 @@ class Greet4Test {
         //then
         assertEquals("Adam i Iza", result);
     }
+    @Test
+    void testShouldReturnGreetingForAllName() {
+        //given
+        Greet4 greet4 = new Greet4();
+        String name = "Adam,Iza,Robert";
+
+        //when
+        String result = greet4.greet4(name);
+
+        //then
+        assertEquals("Adam, Iza i Robert", result);
+    }
 }
