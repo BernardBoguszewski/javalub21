@@ -11,9 +11,6 @@ public class FizzBuzzWhizz {
         if (digit == 5) {
             return "BuzzWhizz";
         }
-        if (isDigitPrime(digit)) {
-            return "Whizz";
-        }
         if (digit % 3 == 0 && digit % 5 == 0) {
             return "FizzBuzz";
         }
@@ -23,6 +20,11 @@ public class FizzBuzzWhizz {
         if (digit % 5 == 0) {
             return "Buzz";
         }
+
+        if (isDigitPrime(digit)) {
+            return "Whizz";
+        }
+
         return null;
     }
 

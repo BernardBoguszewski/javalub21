@@ -18,7 +18,7 @@ class FizzBuzzWhizzTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"3", "6", "18", "102"})
+    @CsvSource({"6", "18", "102"})
     void testShouldReturnFizzIfDigitIsDivisibleByThree(Integer digit) {
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
 
@@ -28,7 +28,7 @@ class FizzBuzzWhizzTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"5", "10", "100", "1015"})
+    @CsvSource({"10", "100", "1015"})
     void testShouldReturnBuzzIfDigitIsDivisibleByFive(Integer digit) {
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
 
@@ -59,7 +59,7 @@ class FizzBuzzWhizzTest {
 
     @ParameterizedTest
     @CsvSource({"2", "7", "11", "13", "17", "19", "23", "29", "31", "37", "41", "43", "47", "52"})
-    void testShouldReturnFizzWhizzIfDigitEquals3AndBuzzWhizzIfDigitEquals5(Integer digit) {
+    void testShouldReturnFizzWhizzIfDigitIsPrime(Integer digit) {
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
 
         String result = fizzBuzzWhizz.fizzBuzzWhizz(digit);
