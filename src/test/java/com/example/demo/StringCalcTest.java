@@ -53,6 +53,16 @@ class StringCalcTest {
         assertEquals(28, result);
         assertEquals(16, result2);
         assertEquals(30, result3);
+    }
+
+    @Test
+    void testShouldWorkWithNewLine() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "3\n5,3";
+
+        int result = stringCalc.add(numbers);
+
+        assertEquals(11, result);
 
     }
 
