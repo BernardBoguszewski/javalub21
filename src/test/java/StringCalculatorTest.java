@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.AfterEach;
+import com.example.demo.StringCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
@@ -9,8 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
     StringCalculator stringCalculator;
+
     @BeforeEach
-    void setup(){
+    void setup() {
         stringCalculator = new StringCalculator();
     }
 
@@ -49,18 +50,19 @@ class StringCalculatorTest {
         //then
         assertEquals(expected, result);
     }
+
     @Test
-    void testShouldAddNumbersSeparatedByCommaOrNewLine(){
+    void testShouldAddNumbersSeparatedByCommaOrNewLine() {
         //given
         String given = "3\n4,5";
         //when
         int result = stringCalculator.add(given);
         //then
-        assertEquals(12,result);
+        assertEquals(12, result);
     }
 
     @Test
-    void testShouldAddNumbersSeparatedByDelimiter(){
+    void testShouldAddNumbersSeparatedByDelimiter() {
         //given
         String given = "//%\n3%5%7";
         String given2 = "//;\n3;4;7";
@@ -70,19 +72,29 @@ class StringCalculatorTest {
         int result2 = stringCalculator.add(given2);
         int result3 = stringCalculator.add(given3);
         //then
-        assertEquals(15,result);
-        assertEquals(14,result2);
-        assertEquals(19,result3);
+        assertEquals(15, result);
+        assertEquals(14, result2);
+        assertEquals(19, result3);
     }
 
     @Test
-    void testShouldCheckIfExceptionIsThrownForNegativeNumbers(){
+    void testShouldCheckIfExceptionIsThrownForNegativeNumbers() {
         //given
         String given = "2,3,-4";
         //when
-        Executable result = ()-> stringCalculator.add(given);
+        Executable result = () -> stringCalculator.add(given);
         //then
         assertThrows(IllegalArgumentException.class, result);
+    }
+
+    @Test
+    void testShouldIgnoreNumbersHigherThan1000() {
+        //given
+        String given = "10002,200,1000003";
+        //when
+        int result = stringCalculator.add(given);
+        //then
+        assertEquals(205, result);
     }
 
 }
