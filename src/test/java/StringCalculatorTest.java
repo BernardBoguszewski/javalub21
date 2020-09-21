@@ -98,7 +98,7 @@ class StringCalculatorTest {
     }
 
     @Test
-    void testShouldAddNumbersForDelimitersWithVariousLength(){
+    void testShouldAddNumbersForDelimitersWithVariousLength() {
         //given
         String given = "//%%%%\n3%%%%5%%%%7";
         String given2 = "//;;\n3;;4;;7";
@@ -113,4 +113,23 @@ class StringCalculatorTest {
         assertEquals(19, result3);
     }
 
+    /*
+    Symbole oznaczajace w regexie koniec/poczatek linii ($,^) sypia program. Jak stousje znak ucieczki nie dzialaja
+    zwykle wyrazenia. Nie wiem jak to naprawic.
+     */
+    @Test
+    void testShouldAddNumberForVariousDelimiters(){
+        //given
+        String given = "//[#][e]\n3#5e7";
+        String given2 = "//[;][b]\n3;4b7";
+        String given3 = "//[sad][happy]\n5sad7happy7";
+        //when
+        int result = stringCalculator.add(given);
+        int result2 = stringCalculator.add(given2);
+        int result3 = stringCalculator.add(given3);
+        //then
+        assertEquals(15, result);
+        assertEquals(14, result2);
+        assertEquals(19, result3);
+    }
 }
