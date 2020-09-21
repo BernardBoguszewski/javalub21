@@ -16,6 +16,7 @@ class StringCalcTest {
 
         assertEquals(8, result);
     }
+
     @Test
     void testShouldReturnZero() {
         StringCalc stringCalc = new StringCalc();
@@ -84,11 +85,12 @@ class StringCalcTest {
         String numbers = "3,-5";
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> {stringCalc.add(numbers);});
+                () -> {
+                    stringCalc.add(numbers);
+                });
 
         assertEquals("Liczby ujemne nie sąobsługiwane", exception.getMessage());
     }
-
 
     @Test
     void testShouldIgnoreValuesOverOneThousand() {
@@ -98,6 +100,25 @@ class StringCalcTest {
         int result = stringCalc.add(numbers);
 
         assertEquals(7, result);
+    }
 
+    @Test
+    void testShouldWorkWithDefinedSeparators() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers= "//[abc]\n5abc2abc3";
+
+        int result1 = stringCalc.add(numbers);
+
+        assertEquals(10, result1);
+    }
+
+    @Test
+    void testShouldWorkWithDefinedSeparatorsSpecialCharactersStarCheck() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "//[***]\n5***2***3";
+
+        int result = stringCalc.add(numbers);
+
+        assertEquals(10, result);
     }
 }
