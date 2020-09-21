@@ -97,4 +97,20 @@ class StringCalculatorTest {
         assertEquals(205, result);
     }
 
+    @Test
+    void testShouldAddNumbersForDelimitersWithVariousLength(){
+        //given
+        String given = "//%%%%\n3%%%%5%%%%7";
+        String given2 = "//;;\n3;;4;;7";
+        String given3 = "//sad\n5sad7sad7";
+        //when
+        int result = stringCalculator.add(given);
+        int result2 = stringCalculator.add(given2);
+        int result3 = stringCalculator.add(given3);
+        //then
+        assertEquals(15, result);
+        assertEquals(14, result2);
+        assertEquals(19, result3);
+    }
+
 }
