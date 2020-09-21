@@ -88,4 +88,16 @@ class StringCalcTest {
 
         assertEquals("Liczby ujemne nie sąobsługiwane", exception.getMessage());
     }
+
+
+    @Test
+    void testShouldIgnoreValuesOverOneThousand() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "1002,5";
+
+        int result = stringCalc.add(numbers);
+
+        assertEquals(7, result);
+
+    }
 }

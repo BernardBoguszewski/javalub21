@@ -31,9 +31,12 @@ public class StringCalc {
             if(Integer.parseInt(divided[i]) < 0){
                 throw new IllegalArgumentException("Liczby ujemne nie sąobsługiwane");
             }
+            if(Integer.parseInt(divided[i]) > 1000){
+                String newI = divided[i].substring(divided[i].length()-1);
+                divided[i] = newI;
+            }
             sum += Integer.parseInt(divided[i]);
         }
-
         return sum;
     }
 
