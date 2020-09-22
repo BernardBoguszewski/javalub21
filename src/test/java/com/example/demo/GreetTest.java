@@ -18,4 +18,30 @@ class GreetTest {
         //then
         assertEquals("Witaj, Adam", result);
     }
+
+    @Test
+    void testShouldReturnGreetingForNullName() {
+        //given
+        Greet greet = new Greet();
+        String name = null;
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("Witaj, mój przyjacielu", result);
+    }
+
+    @Test
+    void testShouldReturnGreetingForUpperName() {
+        //given
+        Greet greet = new Greet();
+        String name = "ADAM";
+
+        //when
+        String result = greet.greet(name);
+
+        //then
+        assertEquals("WITAJ ADAM", result);
+    }
 }
