@@ -121,4 +121,24 @@ class StringCalcTest {
 
         assertEquals(10, result);
     }
+
+    @Test
+    void testShouldWorkWithMoreThanOneDefinedSeparators() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "//[%],[;]\n8;2%7";
+
+        int result = stringCalc.add(numbers);
+
+        assertEquals(17, result);
+    }
+
+    @Test
+    void testShouldWorkWithMoreThanOneDefinedMultiCharacterSeparators() {
+        StringCalc stringCalc = new StringCalc();
+        String numbers = "//[%%],[;]\n8;2%%7";
+
+        int result = stringCalc.add(numbers);
+
+        assertEquals(17, result);
+    }
 }

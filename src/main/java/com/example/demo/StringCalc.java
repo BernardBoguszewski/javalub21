@@ -1,6 +1,9 @@
 package com.example.demo;
 
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class StringCalc {
 
     public int add(String numbers) {
@@ -45,32 +48,80 @@ public class StringCalc {
         String result = "";
 
         if (numbers.charAt(2) == '[') {
-            int delimiterEnd = numbers.indexOf(']');
-            newNumbers = numbers.substring(delimiterEnd + 2);
-            newDelimiter = numbers.substring(3, delimiterEnd);
+            //checking number of brackets
+            char[] characters = new char[numbers.length() - 1];
+            int numberOfOpenBrackets = 0;
+            List<Integer> bracketInStringIndexes = new LinkedList<>();
 
-            //tutaj próbowałem zmianić by kod działał z meta znakami = *
-
-            if(newDelimiter.contains("*") || newDelimiter.contains(".") || newDelimiter.contains("^")){
-                String delimiterTwo = "";
-                for (int i = 0; i < newDelimiter.length(); i++) {
-                    if(newDelimiter.charAt(i) == '*'|| newDelimiter.charAt(i) == '.' || newDelimiter.charAt(i) == '^')
-                    delimiterTwo += "//";
-                delimiterTwo += newDelimiter.charAt(i);
+            for (int i = 0; i < numbers.length() - 1; i++) {
+                characters[i] = numbers.charAt(i);
+                if (numbers.charAt(i) == '[') {
+                    numberOfOpenBrackets++;
+                    bracketInStringIndexes.add(i);
                 }
-                newDelimiter = delimiterTwo;
+                if (numbers.charAt(i) == ']') {
+                    bracketInStringIndexes.add(i);
+                }
             }
 
+            if (numberOfOpenBrackets == 2) {
+                String newDelimiter1 = "";
+                String newDelimiter2 = "";
 
-            result = newNumbers.replaceAll(newDelimiter, ",");
+                if (bracketInStringIndexes.get(1) - bracketInStringIndexes.get(0) > 1
+                        || bracketInStringIndexes.get(3) - bracketInStringIndexes.get(2) > 1) {
+                    if (bracketInStringIndexes.get(1) - bracketInStringIndexes.get(0) > 1) {
+                        newDelimiter1 = numbers.substring(bracketInStringIndexes.get(0)+1, bracketInStringIndexes.get(1));
+                    }
+                    if (bracketInStringIndexes.get(1) - bracketInStringIndexes.get(0) == 1) {
+                        newDelimiter1 = String.valueOf(numbers.charAt(bracketInStringIndexes.get(0) + 1));
+                    }
+                    if (bracketInStringIndexes.get(3) - bracketInStringIndexes.get(2) > 1) {
+                        newDelimiter2 = numbers.substring(bracketInStringIndexes.get(2) + 1, bracketInStringIndexes.get(3));
+                    }
+                    if (bracketInStringIndexes.get(3) - bracketInStringIndexes.get(2) == 1) {
+                        newDelimiter2 = String.valueOf(numbers.charAt(bracketInStringIndexes.get(2) + 1));
+                    }
+                    newNumbers = numbers.substring(bracketInStringIndexes.get(3)+2);
+                    String numbersStage1 = newNumbers.replaceAll(newDelimiter1, ",");
+                    result = numbersStage1.replaceAll(newDelimiter2, ",");
+                }
+                if (bracketInStringIndexes.get(1) - bracketInStringIndexes.get(0) == 1
+                        && bracketInStringIndexes.get(3) - bracketInStringIndexes.get(2) == 1) {
+                    newNumbers = numbers.substring(10);
+                    newDelimiter1 = String.valueOf(characters[3]);
+                    newDelimiter2 = String.valueOf(characters[7]);
 
+                    String numbersStage1 = newNumbers.replaceAll(newDelimiter1, ",");
+                    result = numbersStage1.replaceAll(newDelimiter2, ",");
+                }
+            }
+            if (numberOfOpenBrackets == 1) {
+                int delimiterEnd = numbers.indexOf(']');
+                newNumbers = numbers.substring(delimiterEnd + 2);
+                newDelimiter = numbers.substring(3, delimiterEnd);
+
+                //tutaj próbowałem zmianić by kod działał z meta znakami = *
+
+                if (newDelimiter.contains("*") || newDelimiter.contains(".") || newDelimiter.contains("^")) {
+                    String delimiterTwo = "";
+                    for (int i = 0; i < newDelimiter.length(); i++) {
+                        if (newDelimiter.charAt(i) == '*' || newDelimiter.charAt(i) == '.' || newDelimiter.charAt(i) == '^')
+                            delimiterTwo += "//";
+                        delimiterTwo += newDelimiter.charAt(i);
+                    }
+                    newDelimiter = delimiterTwo;
+                }
+                result = newNumbers.replaceAll(newDelimiter, ",");
+            }
         }
-        if(numbers.charAt(2) != '[') {
-            newNumbers = numbers.substring(4);
-            newDelimiter = String.valueOf(numbers.charAt(2));
-            result = newNumbers.replaceAll(newDelimiter, ",");
-        }
+            if (numbers.charAt(2) != '[') {
+                newNumbers = numbers.substring(4);
+                newDelimiter = String.valueOf(numbers.charAt(2));
+                result = newNumbers.replaceAll(newDelimiter, ",");
+            }
 
         return result;
     }
 }
+
